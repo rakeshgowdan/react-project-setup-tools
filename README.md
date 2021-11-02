@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# To configure ESLINT and PRETTIER in react
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Why linting your code is important?
 
-## Available Scripts
+Linting will checks out the code without executing it.
 
-In the project directory, you can run:
+The best part of a linter is finding potential errors in your code that don’t look like them.
 
-### `yarn start`
+## ESLint
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Example:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `// ❌ Oops, what is multiple?
+const output = multiple(1, 2);`
 
-### `yarn test`
+ESLint wouldn’t know what add refers to and would throw an error at you. You need to explicitly declare add to correct it:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `// ✅ Correct
+function multiple() {}
+const output = multiple(1, 2);`
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 1.Install Eslint Globally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm i -g eslint`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 2. Initiate Eslint in your project:
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `eslint --init`
+(answer the questions)
+**NOTE: Use it with caution, It’s very bad idea to disable ESLint every time it spots errors.**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 3. Confirm installation of eslint-plugin-react
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 4. Look in to .eslintrc.json in root folder , it would contain similar code like below
+### ` {
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "google"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+    }
+} `
 
-## Learn More
+## 5. Install prettier dependencies:
+### ` npm i -D eslint-config-prettier eslint-plugin-prettier prettier`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "google"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "prettier/prettier": [
+            "error",
+            {
+                "printWidth": 80,
+                "trailingComma": "es5",
+                "semi": false,
+                "jsxSingleQuote": true,
+                "singleQuote": true,
+                "useTabs": true
+            }
+        ]
+    }
+}
+`
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### links 
+`https://dev.to/suprabhasupi/learn-to-configure-eslint-and-prettier-in-react-4gp0`
+`https://dev.to/swyx/how-to-add-prettier-and-eslint-automation-to-a-react-codebase-2gk1`

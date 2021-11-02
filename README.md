@@ -62,7 +62,7 @@ const output = multiple(1, 2);`
 ### ` npm i -D eslint-config-prettier eslint-plugin-prettier prettier`
 
 
-`{
+### ` {
     "env": {
         "browser": true,
         "es6": true
@@ -94,10 +94,10 @@ const output = multiple(1, 2);`
             }
         ]
     }
-}
-`
+} `
+
 
 
 ### links 
-`https://dev.to/suprabhasupi/learn-to-configure-eslint-and-prettier-in-react-4gp0`
-`https://dev.to/swyx/how-to-add-prettier-and-eslint-automation-to-a-react-codebase-2gk1`
+` https://dev.to/suprabhasupi/learn-to-configure-eslint-and-prettier-in-react-4gp0 `
+` https://dev.to/swyx/how-to-add-prettier-and-eslint-automation-to-a-react-codebase-2gk1 `
